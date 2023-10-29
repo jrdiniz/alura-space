@@ -8,5 +8,6 @@ class ListPhotos(admin.ModelAdmin):
     list_filter = ("category", )
     list_editable = ("publish", )
     list_per_page = 10
+    readonly_fields = ('display_photo', )
 
 admin.site.register(Photo, ListPhotos)
