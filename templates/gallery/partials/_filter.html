@@ -1,0 +1,10 @@
+{% load static %}
+<section class="tags">
+    <p class="tags__titulo">Busque por tags:</p>
+    <ul class="tags__lista">
+        <li class="tags__tag"><a href="{% url 'filter' category='NEBULOSA' %}">Nebulosa</a></li>
+        <li class="tags__tag"><a href="{% url 'filter' category='ESTRELA' %}">Estrela</a></li>
+        <li class="tags__tag"><a href="{% url 'filter' category='GALAXIA' %}">Galáxia</a></li>
+        <li class="tags__tag"><a href="{% url 'filter' category='PLANETA' %}">Planeta</a></li>
+    </ul>
+</section>

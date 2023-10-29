@@ -8,17 +8,17 @@ django-admin startproject setup .
 Run Django Server
 
 ``` 
-python manager.py runserver
+python manage.py runserver
 ```
 
 Create App (Blueprints)
 
 ```
-python manager.py startapp <blueprint name>
+python manage.py startapp <blueprint name>
 ```
 
 Collectic static files
 
 ```
-python manager.py collectstatic
+python manage.py collectstatic
 ```
