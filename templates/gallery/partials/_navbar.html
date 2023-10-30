@@ -2,8 +2,11 @@
 <section class="menu-lateral">
     <nav class="menu-lateral__navegacao">
         <a href="{% url 'index' %}"><img src="{% static '/assets/ícones/1x/Home - ativo.png' %}"> Home</a>
-        <a href="#"><img src="{% static '/assets/ícones/1x/Mais vistas - inativo.png' %}"> Mais vistas</a>
-        <a href="#"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Novas</a>
-        <a href="#"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Surpreenda-me</a>
+        <a href="{% url 'users_login' %}"><img src="{% static '/assets/ícones/1x/Mais vistas - inativo.png' %}"> Login</a>
+        <a href="{% url 'users_register' %}"><img src="{% static '/assets/ícones/1x/Novas - inativo.png' %}"> Registro</a>
+        
+        {% if user.is_authenticated %}
+        <a href="{% url 'users_logout' %}"><img src="{% static '/assets/ícones/1x/Surpreenda-me - inativo.png' %}"> Sair</a>
+        {% endif %}
     </nav>
 </section>
