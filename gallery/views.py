@@ -1,9 +1,14 @@
 import feedparser
 from django.shortcuts import render
+from django.shortcuts import redirect
+from django.contrib import messages
 from django.shortcuts import get_object_or_404
 from gallery.models import Photo
 
 def index(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'O usuário não esta logado.')
+        return redirect('users_login')
     cards = Photo.objects.order_by("created_at").filter(publish=True)
     return render(request, 'gallery/index.html', {"cards": cards})
 
@@ -12,6 +17,9 @@ def image(request, id):
     return render(request, 'gallery/image.html', {'photo':photo})
 
 def search(request):
+    if not request.user.is_authenticated:
+        messages.error(request, 'O usuário não esta logado.')
+        return redirect('users_login')
     cards = Photo.objects.order_by("created_at").filter(publish=True)
     
     if "search" in request.GET:

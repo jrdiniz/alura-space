@@ -5,14 +5,14 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
 
-from users.forms import LoginForms
+from users.forms import LoginForm
 from users.forms import RegisterForm
 
 # Create your views here.
 def login(request):
-    form = LoginForms()
+    form = LoginForm()
     if request.method == "POST":
-        form = LoginForms(request.POST)
+        form = LoginForm(request.POST)
         if form.is_valid:
             username = form['username'].value()
             password = form['password'].value()
@@ -60,5 +60,5 @@ def register(request):
     return render(request, 'users/register.html', {'form': form})
 
 def logout(request):
-    auth.logout()
+    auth.logout(request)
     return redirect('users_login')

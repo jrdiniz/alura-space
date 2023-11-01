@@ -1,6 +1,6 @@
 from django import forms
 
-class LoginForms(forms.Form):
+class LoginForm(forms.Form):
     username = forms.CharField(
         label="Nome do Usuário",
         required=True,
@@ -69,3 +69,12 @@ class RegisterForm(forms.Form):
             }
         )
     )
+    
+    def clean_username(self):
+        username = self.cleaned_data("username")
+        if username:
+            username = username.strip()
+            if " " in username:
+                raise forms.ValidationError("O formato do nome de usuário não é valido.")
+            else:
+                return username

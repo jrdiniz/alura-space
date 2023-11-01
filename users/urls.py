@@ -6,5 +6,5 @@ from users.views import logout
 urlpatterns = [
     path("login", login, name='users_login'),
     path("register", register, name="users_register"),
-    path("logout", register, name="users_logout")
+    path("logout", logout, name="users_logout")
 ]
